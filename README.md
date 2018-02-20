@@ -20,7 +20,7 @@ Instruções para compilar a solução:
 * Restaure os Packages através do nuget package;
 
 * Abre o arquivo "EmprestimoJogos.Web\Web.config" e em "connectionStrings" modifique o "Server" e "Password" de acordo o servidor SQL Server instalado.
- Ex.:
+ 
   <connectionStrings>
     <add name="Emprestimo" connectionString="Server=xxxxxx;Database=Emprestimo;User ID=sa;Password=xxxxx;" providerName="System.Data.SqlClient" />
   </connectionStrings>
