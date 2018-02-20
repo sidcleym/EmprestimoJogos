@@ -1,0 +1,57 @@
+﻿@model IEnumerable<EmprestimoJogos.Domain.Models.Amigo>
+
+<h2>Lista de Amigos</h2>
+
+<p>
+    @Html.ActionLink("Adicionar", "Create","Amigos")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.DtInclusao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DtAtualizacao)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefone)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.DtInclusao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DtAtualizacao)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit/"+item.Id,"Amigos" ) |
+            @Html.ActionLink("Visualizar", "Details/"+item.Id, "Amigos") |
+            @Html.ActionLink("Excluir", "Exclusao/"+item.Id,"Amigos" )
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,100 @@
+﻿@model EmprestimoJogos.Domain.Models.Jogo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Jogo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ano)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ano)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Emprestado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Emprestado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DtInclusao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DtInclusao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DtAtualizacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DtAtualizacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observacao)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Jogos")
+</p>
+
+<div>
+    <h3>Histórico de empréstimos</h3>
+    <table class="table">
+        <thead class="thead">
+            <tr>
+                <th>Amigo</th>
+                <th>Dt. Empréstimo</th>
+                <th>Dt. Devolução</th>
+                <th>Devolvido</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Historico)
+            {
+                <tr>
+                    <td>@item.Amigo.Nome</td>
+                    <td>@item.DtInclusao</td>
+                    <td>@item.DtDevolucao</td>
+                    @if (item.Ativo == true)
+                    {
+                        <td>Não</td> }
+                    else
+                    {
+                        <td> Sim </td>}
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

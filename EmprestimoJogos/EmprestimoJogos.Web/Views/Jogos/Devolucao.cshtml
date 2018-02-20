@@ -1,0 +1,51 @@
+﻿@model EmprestimoJogos.Models.ModelEmprestimo
+
+@{
+    ViewBag.Title = "Devolucao";
+}
+
+<h2>Devolucao</h2>
+
+@using (Html.BeginForm("Devolver","Jogos",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>ModelEmprestimo</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <label class="form-control">Jogo:  @Model.Emprestimo.Jogo.Descricao</label>
+        </div>
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Emprestimo.Id, new { style = "display:none;" })
+            @Html.TextBoxFor(model => model.Emprestimo.JogoId, new { style = "display:none;" })
+            @Html.ValidationMessageFor(model => model.Emprestimo.JogoId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <label class="form-control">Amigo:  @Model.Amigos[0].Nome</label>
+        </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Emprestimo.AmigoId, new { style = "display:none;" })
+               
+                @Html.ValidationMessageFor(model => model.Emprestimo.JogoId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Devolver" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Jogos")
+</div>

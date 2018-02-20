@@ -1,0 +1,55 @@
+﻿@model EmprestimoJogos.Domain.Models.Amigo
+
+<h3 style="color:red;">
+    @if (!string.IsNullOrWhiteSpace(ViewBag.Mensagem))
+    {
+        <label> @ViewBag.Mensagem</label>
+    }
+    else
+    {
+        <label> Deseja realmente deletar este amigo ?</label>
+    }
+</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("Exclusao", "Amigos", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Nome)
+        @Html.HiddenFor(model => model.Email)
+        @Html.HiddenFor(model => model.Telefone)
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Amigos")
+        </div>
+    }
+</div>

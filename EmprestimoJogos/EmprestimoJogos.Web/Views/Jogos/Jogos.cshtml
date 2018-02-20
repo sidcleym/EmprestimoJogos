@@ -1,0 +1,83 @@
+﻿@model IEnumerable<EmprestimoJogos.Domain.Models.Jogo>
+
+
+
+<h2>Lista de Jogos</h2>
+
+<p>
+    @Html.ActionLink("Adicionar", "Create", "Jogos")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ano)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emprestado)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Observacao)
+        </th>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.DtInclusao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DtAtualizacao)
+        </th>
+        <th ></th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ano)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Emprestado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtInclusao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtAtualizacao)
+            </td>
+
+            <td >
+                @if (item.Emprestado)
+                {
+                    @Html.ActionLink("Devolver", "Devolucao/" + item.Id, "Jogos", new { style = "color:brown;" })
+                }
+                else
+                {
+                    @Html.ActionLink("Emprestar", "Emprestimo/" + item.Id, "Jogos", new { style = "color:brown;" })
+                }
+                
+
+            </td>
+
+            <td>
+
+                @Html.ActionLink("Editar", "Edit/" + item.Id, "Jogos") |
+                @Html.ActionLink("Visualizar", "Details/" + item.Id, "Jogos") |
+                @Html.ActionLink("Excluir", "Exclusao/" + item.Id, "Jogos")
+            </td>
+        </tr>
+    }
+
+</table>

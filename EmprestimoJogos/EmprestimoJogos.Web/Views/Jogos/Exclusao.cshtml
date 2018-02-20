@@ -1,0 +1,59 @@
+﻿@model EmprestimoJogos.Domain.Models.Jogo
+
+<h2>Exclusao</h2>
+
+<h3 style="color:red;">
+    @if (!string.IsNullOrWhiteSpace(ViewBag.Mensagem))
+    {
+        <label> @ViewBag.Mensagem</label>
+    }
+    else
+    {
+        <label> Deseja realmente deletar este jogo ?</label>
+    }
+</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id) - @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ano)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ano)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Emprestado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Emprestado)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("Exclusao", "Jogos", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Descricao)
+        @Html.HiddenFor(model => model.Ano)
+        @Html.HiddenFor(model => model.Emprestado)
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Jogos")
+        </div>
+    }
+</div>
