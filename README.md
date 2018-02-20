@@ -1,7 +1,7 @@
 # EmprestimoJogos
 Sistema de empréstimo de jogos
 
-- Package utilizados:
+Package utilizados:
 * Entity Framework;
 * Ninject;
 * Razor;
@@ -9,13 +9,13 @@ Sistema de empréstimo de jogos
 * MSTest;
 * JQuery;
 
-- Técnicas e Padrões de projeto utilizados;
+Técnicas e Padrões de projeto utilizados;
 * Repository (genérico);
 * Service;
 * TDD;
 * Code First.
 
-- Instruções para compilar a solução:
+Instruções para compilar a solução:
 
 * Restaure os Packages através do nuget package;
 
@@ -28,7 +28,7 @@ Sistema de empréstimo de jogos
 
 * No visual studio, abra o arquivo "EmprestimoJogos.sln", defina o "EmprestimoJogos.Web" como projeto de inicialização, compile e execute.
 
-- Projetos na Solução :
+Projetos na Solução :
 
 * EmprestimoJogos.Domain: Aplicação em Class Library com Modelos, infraestrutura de banco, repositorio e services utilizados para persistência das entidades;
 * EmprestimoJogos.Tests: Aplicação de Testes de unidade;
