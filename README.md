@@ -28,6 +28,10 @@ Instruções para compilar a solução:
 
 * No visual studio, abra o arquivo "EmprestimoJogos.sln", defina o "EmprestimoJogos.Web" como projeto de inicialização, compile e execute.
 
+Ao executar a aplicação deverá preencher os seguintes dados:
+Email: sidcleym@gmail.com
+Senha: 123456
+
 Projetos na Solução :
 
 * EmprestimoJogos.Domain: Aplicação em Class Library com Modelos, infraestrutura de banco, repositorio e services utilizados para persistência das entidades;
