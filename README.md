@@ -19,11 +19,11 @@ Instruções para compilar a solução:
 
 * Restaure os Packages através do nuget package;
 
-* Edite o arquivo "EmprestimoJogos.Web\Web.config", modificando o "Server" e "Password" de acordo o servidor SQL Server instalado.
+* Abre o arquivo "EmprestimoJogos.Web\Web.config" e em "connectionStrings" modifique o "Server" e "Password" de acordo o servidor SQL Server instalado.
  Ex.:
-  "<connectionStrings>
+  <connectionStrings>
     <add name="Emprestimo" connectionString="Server=xxxxxx;Database=Emprestimo;User ID=sa;Password=xxxxx;" providerName="System.Data.SqlClient" />
-  </connectionStrings>"
+  </connectionStrings>
 
 
 * No visual studio, abra o arquivo "EmprestimoJogos.sln", defina o "EmprestimoJogos.Web" como projeto de inicialização, compile e execute.
